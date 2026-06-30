@@ -11,6 +11,18 @@
       type="image/x-icon" />
   </head>
   <body>
-    <h1>To-Do List App</h1>
+    <div class="container">
+      <div class="todo-app">
+        <h2>To-Do List <img src="media/icon.png" /></h2>
+        <div class="row">
+          <input type="text" id="input-box" placeholder="Add your to-do" />
+          <button onclick="addTask()">Add</button>
+        </div>
+        <div class="error"><p>You need to write something!</p></div>
+
+        <ul id="list-container"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>

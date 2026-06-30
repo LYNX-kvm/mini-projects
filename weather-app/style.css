@@ -109,18 +109,7 @@ a:hover {
 }
 
 /* =========================
-   4. LAYOUT
-   ========================= */
-
-main {
-  flex: 1;
-  width: min(100%, 1200px);
-  margin: 0 auto;
-  padding: var(--space-xl);
-}
-
-/* =========================
-   5. COMPONENTS
+  COMPONENTS
    ========================= */
 
 .card {

@@ -1,0 +1,219 @@
+/* =========================================================
+   BASE STYLES
+   Minimal starter — reset, typography, background, variables.
+   ========================================================= */
+
+/* =========================
+   1. VARIABLES
+   ========================= */
+
+:root {
+  /* === Colors === */
+  --color-bg: #e4e7ff;
+  --color-bg-sec: #ffffff;
+
+  --color-text: #0a0e27;
+  --color-accent: #3366ff;
+  --color-border: #e0e0e0;
+
+  /* === Gradient === */
+  --gradient-1: #788aff;
+  --gradient-2: #ff8f83;
+
+  /* === Spacing === */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem; /* 16 */
+  --space-lg: 1.5rem; /* 24 */
+  --space-xl: 2rem; /* 32 */
+  --space-2xl: 3rem; /* 48 */
+  --space-3xl: 5rem; /* 80 */
+  --space-4xl: 6rem; /* 96 */
+
+  /* === Font Sizes === */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+
+  /* === Transitions === */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+
+  /* === Effects === */
+  --shadow: 0px 0px 16px 0px rgba(47, 29, 61, 0.7);
+  --shadow-dark: 0px 0px 16px 0px rgb(8, 0, 14);
+}
+
+/* =========================
+   2. RESET
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================
+   3. TYPOGRAPHY
+   ========================= */
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+}
+
+h3,
+h4 {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+p {
+  font-size: var(--text-base);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   COMPONENTS
+   ========================= */
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+  padding: var(--space-md);
+  /* text-align: center; */
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background: var(--color-bg);
+  margin: var(--space-4xl) auto var(--space-lg);
+  padding: var(--space-2xl) var(--text-xl) var(--space-3xl);
+  border-radius: var(--space-md);
+  /* text-align: center; */
+  transition: var(--transition-normal);
+}
+.todo-app:hover {
+  box-shadow: var(--shadow);
+}
+.todo-app h2 {
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.todo-app h2 img {
+  width: 30px;
+  margin-left: var(--space-md);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg-sec);
+  border-radius: var(--space-xl);
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: var(--space-md);
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: var(--space-md) var(--space-2xl);
+  border-radius: var(--space-xl);
+  background: #ff5945;
+  color: var(--color-bg-sec);
+  font-size: var(--text-base);
+  cursor: pointer;
+}
+
+ul li {
+  list-style: none;
+  font-size: var(--text-base);
+  padding: var(--space-md) var(--space-sm) var(--space-md) var(--space-2xl);
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(media/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 12px;
+  left: 8px;
+}
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
+ul li.checked::before {
+  background-image: url(media/checked.png);
+}
+ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+ul li span:hover {
+  background: var(--color-bg-sec);
+}
+
+.error {
+  text-align: left;
+  margin-left: var(--space-sm);
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  display: none;
+}
