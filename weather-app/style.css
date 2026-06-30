@@ -1,0 +1,245 @@
+/* =========================================================
+   BASE STYLES
+   Minimal starter — reset, typography, background, variables.
+   ========================================================= */
+
+/* =========================
+   1. VARIABLES
+   ========================= */
+
+:root {
+  /* === Colors === */
+  --color-bg: #0a0e27;
+  --color-text: #fffefe;
+  --color-muted: #666666;
+  --color-accent: #3366ff;
+  --color-border: #e0e0e0;
+
+  /* === Gradient === */
+  --gradient-1: #419eaa;
+  --gradient-2: #450663;
+
+  /* === Spacing === */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* === Font Sizes === */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+
+  /* === Transitions === */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+
+  /* === Effects === */
+  --shadow: 0px 0px 16px 0px rgba(47, 29, 61, 0.7);
+  --shadow-dark: 0px 0px 16px 0px rgb(8, 0, 14);
+}
+
+/* =========================
+   2. RESET
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+/* =========================
+   3. TYPOGRAPHY
+   ========================= */
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+}
+
+h3,
+h4 {
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+p {
+  font-size: var(--text-base);
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   4. LAYOUT
+   ========================= */
+
+main {
+  flex: 1;
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: var(--space-xl);
+}
+
+/* =========================
+   5. COMPONENTS
+   ========================= */
+
+.card {
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(
+    135deg,
+    var(--gradient-1),
+    var(--gradient-1),
+    var(--gradient-2),
+    var(--gradient-2)
+  );
+  background-size: 200% 200%;
+  animation: gradientMove 20s ease infinite;
+  margin: 100px auto 0;
+  border-radius: var(--space-xl);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  transition: var(--transition-normal);
+}
+.card:hover {
+  box-shadow: var(--shadow-dark);
+}
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  background-color: #ebfffc;
+  color: var(--color-muted);
+  padding: var(--space-sm) var(--text-lg);
+  height: 60px;
+  border-radius: var(--text-xl);
+  flex: 1;
+  margin-right: var(--space-md);
+  font-size: var(--text-lg);
+}
+
+.btn {
+  border: 0;
+  outline: 0;
+  background-color: #ebfffc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn img {
+  width: 16px;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  box-shadow: var(--shadow);
+}
+
+.weather-icon {
+  width: 170px;
+  margin-top: var(--space-xl);
+}
+.weather h1 {
+  font-size: 80px;
+  font-weight: 500;
+}
+.weather h2 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-top: -10px;
+}
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 var(--space-md);
+  margin-top: var(--space-2xl);
+}
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.col img {
+  width: 40px;
+  margin-right: var(--space-md);
+}
+.humidity,
+.wind {
+  font-size: var(--text-xl);
+  margin-top: -6px;
+}
+.weather {
+  display: none;
+}
+.error {
+  text-align: left;
+  margin-left: var(--space-sm);
+  margin-top: var(--space-sm);
+  font-size: var(--text-sm);
+  display: none;
+}
